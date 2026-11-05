@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McBatch.Tests", "tests\McBa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McBatch.Conformance", "tests\McBatch.Conformance\McBatch.Conformance.csproj", "{F7DA7758-8CA1-4CB5-9F77-1995CC57EA2F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McBatch", "src\McBatch\McBatch.csproj", "{76B32C1F-0F60-4A1B-AED1-426121D70D17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,18 @@ Global
 		{F7DA7758-8CA1-4CB5-9F77-1995CC57EA2F}.Release|x64.Build.0 = Release|Any CPU
 		{F7DA7758-8CA1-4CB5-9F77-1995CC57EA2F}.Release|x86.ActiveCfg = Release|Any CPU
 		{F7DA7758-8CA1-4CB5-9F77-1995CC57EA2F}.Release|x86.Build.0 = Release|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Debug|x64.Build.0 = Debug|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Debug|x86.Build.0 = Debug|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Release|x64.ActiveCfg = Release|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Release|x64.Build.0 = Release|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Release|x86.ActiveCfg = Release|Any CPU
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +66,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{175435CC-91B7-45C2-B579-CA2D189E48BA} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{F7DA7758-8CA1-4CB5-9F77-1995CC57EA2F} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
+		{76B32C1F-0F60-4A1B-AED1-426121D70D17} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 	EndGlobalSection
 EndGlobal
