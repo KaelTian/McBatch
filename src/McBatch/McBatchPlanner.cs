@@ -13,6 +13,16 @@ public static class McBatchPlanner
         return BuildPlan(PointScanner.Scan(target.GetType()));
     }
 
+    /// <summary>
+    /// 写计划入口: 与读共用同一 BuildPlan(SPEC §8.2), 但扫描阶段额外执行
+    /// §8.4 的写冲突校验。该方法不触网, 供写入实现与测试使用。
+    /// </summary>
+    public static IReadOnlyList<McRequest> PlanForWrite(object target)
+    {
+        ArgumentNullException.ThrowIfNull(target);
+        return BuildPlan(PointScanner.ScanForWrite(target.GetType()));
+    }
+
     internal static IReadOnlyList<McRequest> BuildPlan(IReadOnlyList<ScannedPoint> points)
     {
         var cells = new HashSet<(McArea Area, bool IsBit, int Index)>();

@@ -42,6 +42,38 @@ internal static class PointScanner
         return points;
     }
 
+    /// <summary>
+    /// 写场景扫描: 普通扫描后再校验任意两个属性覆盖的地址单元不得相交
+    /// (SPEC §8.4: 同一地址、规范化后相同、多字点位重叠均不允许)。
+    /// </summary>
+    public static List<ScannedPoint> ScanForWrite(Type type)
+    {
+        List<ScannedPoint> points = Scan(type);
+        ValidateWriteConflicts(points);
+        return points;
+    }
+
+    private static void ValidateWriteConflicts(List<ScannedPoint> points)
+    {
+        var owner = new Dictionary<(McArea Area, bool IsBit, int Index), ScannedPoint>();
+        foreach (ScannedPoint point in points)
+        {
+            for (int i = 0; i < point.CellWidth; i++)
+            {
+                var cell = (Area: point.Address.Area, IsBit: point.Address.IsBit, Index: point.Address.Number + i);
+                if (owner.TryGetValue(cell, out ScannedPoint? existing))
+                {
+                    throw new ArgumentException(
+                        $"属性 {existing.Property.Name} 与 {point.Property.Name} 覆盖同一地址单元 " +
+                        $"{cell.Area}{(cell.IsBit ? "B" : "W")}{cell.Index}; " +
+                        "写场景不允许地址冲突(SPEC §8.4)。");
+                }
+
+                owner[cell] = point;
+            }
+        }
+    }
+
     private static void ValidateMapping(PropertyInfo property, McAddress address)
     {
         Type type = property.PropertyType;
